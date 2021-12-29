@@ -7,9 +7,9 @@ export const getCurrency = createAsyncThunk(
     async (payload) => {
         const data = await currenciesApi.getAll();
         const data1 = data.map(x => x.code)
-        console.log('type of payload', payload)
+        // console.log('type of payload', payload)
         const data2 = data1.filter((allNameObject) => payload.includes(allNameObject));
-        console.log('check data 2', data2)
+        // console.log('check data 2', data2)
         return data2
     }
 )

@@ -10,16 +10,6 @@ import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import currenciesApi from './apis/currenciesApi';
 function App() {
-  const [quan, setQuan] = React.useState([])
-  console.log('check Quan quan que', quan)
-  React.useEffect(() => {
-    const fetchDataCoins = async () => {
-      const langsList = await currenciesApi.getAll();
-      setQuan(langsList)
-    }
-    fetchDataCoins()
-  }, [])
-
   return (
 
     <div className="App">

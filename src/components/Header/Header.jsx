@@ -1,6 +1,6 @@
 import { unwrapResult } from '@reduxjs/toolkit';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import currenciesApi from '../../apis/currenciesApi';
 import languagesApi from '../../apis/languagesApi';
@@ -17,8 +17,12 @@ function Header(props) {
     const [languages, setLanguages] = React.useState([])
     const [currencies, setCurrencies] = React.useState([])
     const [currency, setCurrency] = React.useState('USD')
-    console.log('check currency picked', currency)
-    // console.log('check tien te', currencies)
+    const data = useSelector((state) => state.currency.value);
+    if (data.length > 0 && currency !== data[0]) {
+        setCurrency(data[0]);
+    }
+    // console.log('check currency picked', currency)
+    // // console.log('check tien te', currencies)
     React.useEffect(() => {
         const fetchDataLangs = async () => {
             const langsList = await languagesApi.getAll();
@@ -34,14 +38,12 @@ function Header(props) {
         fetchDatasetCurrencies()
     }, [])
     const handleClickCurrency = async(curr) => {
-        console.log('checkkkk', curr)
+        // console.log('checkkkk', curr)
         try {
-            setCurrency(curr.code)
-            const action = getCurrency(currency)
+            const action = getCurrency(curr.code)
             const resultAction = await dispatch(action)
-            console.log('huhu', resultAction)
-            const b = unwrapResult(resultAction)
-            console.log('check b',b)
+            const unwrapreslt = unwrapResult(resultAction)
+            // console.log('check unwrapResult',unwrapreslt)
         } catch (error) {
             console.log('Lỗi', error.message)
         }
@@ -99,7 +101,6 @@ function Header(props) {
                                         })
                                 }
                             </ul>
-
                     </div>
                 </Link>
             </div>

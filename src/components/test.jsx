@@ -30,7 +30,7 @@ const Test = () => {
             ws.close();
         };
     }, [currencyPair]);
-    
+
     React.useEffect(() => {
         const fetchDataCoins = async () => {
             const langsList = await coinsApi.getAll();
@@ -61,9 +61,16 @@ const Test = () => {
                                 order[1] === currency &&
 
                                 <tr key={index}>
-                                    <td>
-                                        {order[0]}
-                                    </td>
+                                    {coins.map(coin => {
+                                        return (
+                                            <tr key={coin.id}>
+                                                <td>
+                                                    {coin.code === order[0] ? <img src={coin.image} alt='' width="22px" style={{marginRight: '6px'}}/> : ''}
+                                                    {coin.code === order[0] ? `${coin.name}- ${order[0]}` : ''}
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
                                     <td>
                                         {order[2] + ` ${currency}`}
                                     </td>

@@ -12,7 +12,7 @@ Home.propTypes = {
 function Home(props) {
     const [currency, setCurrency] = React.useState('USD');
     const data = useSelector((state) => state.currency.value);
-    console.log('check data ne', data[0])
+    // console.log('check data ne', data[0])
     const [coins, setCoins] = React.useState([])
     const [orders, setOrders] = React.useState([]);
 
@@ -78,9 +78,16 @@ function Home(props) {
                                         order[1] === currency &&
 
                                         <tr key={index}>
-                                            <td>
-                                                {order[0]}
-                                            </td>
+                                            {coins.map(coin => {
+                                                return (
+                                                    <tr key={coin.id}>
+                                                        <td>
+                                                            {coin.code === order[0] ? <img src={coin.image} alt='' width="22px" style={{ marginRight: '6px', marginTop: '-2px' }} /> : ''}
+                                                            {coin.code === order[0] ? <>{coin.name} - <span style={{color: 'gray'}}>{order[0]}</span></> : ''}
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            })}
                                             <td>
                                                 {order[2] + ` ${currency}`}
                                             </td>
