@@ -1,0 +1,37 @@
+.register {
+    position: relative;
+    width: 100%;
+    height: 766px;
+    background-color: #fff;
+    &__title {
+        position: absolute;
+        width: 400px;
+        height: 38px;
+        left: 248px;
+        top: 90px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 37px;
+        /* identical to box height */
+
+        color: #000000;
+    }
+    &__detail {
+        position: absolute;
+        width: 330px;
+        height: 40px;
+        left: 248px;
+        top: 132px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #474d57;
+    }
+}

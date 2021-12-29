@@ -1,0 +1,41 @@
+.rectangle {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    left: 0px;
+    top: 64px;
+
+    background: #fef6d8;
+    z-index: 1;
+    & > p {
+        position: absolute;
+        width: 623px;
+        height: 16px;
+        left: 134px;
+        top: 7px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #000000;
+    }
+    & > span {
+        position: absolute;
+        width: 33px;
+        height: 16px;
+        left: 750px;
+        top: 7px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #c99400;
+    }
+}

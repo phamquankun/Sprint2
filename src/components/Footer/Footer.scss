@@ -1,0 +1,12 @@
+.footer {
+    position: absolute;
+    width: 1195px;
+    height: 200px;
+    left: 90px;
+    top: 1650px;
+
+    &__title {
+        font-size: 18px;
+        font-weight: 600;
+    }
+}

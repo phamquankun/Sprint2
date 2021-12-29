@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
 
+import React, { useEffect } from 'react';
+import coinsApi from './apis/coinsApi';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Test from './components/test';
+import Home from './pages/Home/Home';
+import { Route, Switch } from 'react-router-dom';
+import Register from './pages/Register/Register';
+import Login from './pages/Login/Login';
+import currenciesApi from './apis/currenciesApi';
 function App() {
+  const [quan, setQuan] = React.useState([])
+  console.log('check Quan quan que', quan)
+  React.useEffect(() => {
+    const fetchDataCoins = async () => {
+      const langsList = await currenciesApi.getAll();
+      setQuan(langsList)
+    }
+    fetchDataCoins()
+  }, [])
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Switch>
+        <Route path='/' component={Home} exact />
+        <Route path='/register' component={Register} />
+        <Route path='/login' component={Login} />
+      </Switch>
+      <Footer />
+      {/* <Test /> */}
     </div>
   );
 }
