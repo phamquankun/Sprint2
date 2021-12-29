@@ -89,7 +89,7 @@ function Home(props) {
                                                 )
                                             })}
                                             <td>
-                                                {order[2] + ` ${currency}`}
+                                            {currency === 'VND' ? `₫${Intl.NumberFormat('de-DE').format(order[2])}` : `$${order[2]}`}
                                             </td>
                                             <td style={order[3] > 0 ? { color: 'green', marginLeft: '3px' } : { color: 'red' }}>
                                                 {order[3]}

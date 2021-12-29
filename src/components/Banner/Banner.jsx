@@ -66,8 +66,8 @@ function Banner(props) {
                         return (
                             order[1] === currency &&
                                 <div className="group-exchange-rate" key={index}>
-                                    <p className="currency">{order[0]}/BUSD<span style={order[3] >0 ? {color: 'green'} : {color: 'red'}}>{order[3]}</span></p>
-                                    <p className="sothu2">{currency === 'VND' ? `${(order[2]/22840).toFixed(5)}` : `${order[2]}`}</p>
+                                    <p className="currency">{order[0]}/{currency}<span style={order[3] >0 ? {color: 'green'} : {color: 'red'}}>{order[3]}</span></p>
+                                    <p className="sothu2">00001,00</p>
                                     <p className="sothu3">
                                         {currency === 'VND' ? `₫${Intl.NumberFormat('de-DE').format(order[2])}` : `$${order[2]}`}</p>
                                 </div> 
