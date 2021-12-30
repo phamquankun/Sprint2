@@ -7,6 +7,8 @@ Banner.propTypes = {
 };
 
 function Banner(props) {
+    const loggedInUser = useSelector(state => state.user.current)
+    const isLoggedIn = !!loggedInUser
     const [orders, setOrders] = React.useState([]);
     const [currency, setCurrency] = React.useState('USD');
     const data = useSelector((state) => state.currency.value);
@@ -44,7 +46,8 @@ function Banner(props) {
                 Join the world's largest crypto exchange
             </div>
             <button className="banner__btn">
-                <p>Register Now</p>
+                {isLoggedIn ? <p>Trade Now</p> : <p>Register Now</p>}
+
             </button>
             <div className="banner__slide">
                 <div className="banner__slide-1">
@@ -65,12 +68,12 @@ function Banner(props) {
                     orders.map((order, index) => {
                         return (
                             order[1] === currency &&
-                                <div className="group-exchange-rate" key={index}>
-                                    <p className="currency">{order[0]}/{currency}<span style={order[3] >0 ? {color: 'green'} : {color: 'red'}}>{order[3]}</span></p>
-                                    <p className="sothu2">00001,00</p>
-                                    <p className="sothu3">
-                                        {currency === 'VND' ? `₫${Intl.NumberFormat('de-DE').format(order[2])}` : `$${order[2]}`}</p>
-                                </div> 
+                            <div className="group-exchange-rate" key={index}>
+                                <p className="currency">{order[0]}/{currency}<span style={order[3] > 0 ? { color: 'green' } : { color: 'red' }}>{order[3]}</span></p>
+                                <p className="sothu2">00001,00</p>
+                                <p className="sothu3">
+                                    {currency === 'VND' ? `₫${Intl.NumberFormat('de-DE').format(order[2])}` : `$${order[2]}`}</p>
+                            </div>
                         )
                     })
                 }

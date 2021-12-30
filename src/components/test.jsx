@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'reactstrap';
 import coinsApi from '../apis/coinsApi';
+import SelectField from './form-control/Select-field/SelectField';
 
 const Test = () => {
     const [orders, setOrders] = useState([]);
@@ -39,51 +40,7 @@ const Test = () => {
         fetchDataCoins()
     }, [])
     return (
-        <Table borderless>
-            <thead>
-                <tr>
-                    <th className="table-header">
-                        Name
-                    </th>
-                    <th className="table-header">
-                        Last Price
-                    </th>
-                    <th className="table-header">
-                        24h Change
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <>
-                    {
-                        orders.map((order, index) => {
-                            return (
-                                order[1] === currency &&
-
-                                <tr key={index}>
-                                    {coins.map(coin => {
-                                        return (
-                                            <tr key={coin.id}>
-                                                <td>
-                                                    {coin.code === order[0] ? <img src={coin.image} alt='' width="22px" style={{marginRight: '6px'}}/> : ''}
-                                                    {coin.code === order[0] ? `${coin.name}- ${order[0]}` : ''}
-                                                </td>
-                                            </tr>
-                                        )
-                                    })}
-                                    <td>
-                                        {order[2] + ` ${currency}`}
-                                    </td>
-                                    <td style={order[3] > 0 ? { color: 'green', marginLeft: '3px' } : { color: 'red' }}>
-                                        {order[3]}
-                                    </td>
-                                </tr>
-                            )
-                        })
-                    }
-                </>
-            </tbody>
-        </Table>
+        <SelectField/>
     );
 };
 

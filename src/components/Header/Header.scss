@@ -21,6 +21,11 @@
         line-height: 42px;
 
         color: #000000;
+
+        & > a {
+            text-decoration: none;
+            color: #000000;
+        }
     }
     & > a {
         position: absolute;
@@ -35,8 +40,48 @@
 
         margin-top: 26px;
     }
+    &__right__wallets {
+        left: 984px;
+    }
     &__right__login {
         left: calc(50% - 39px / 2 + 326.5px);
+    }
+    &__right__loggedin {
+        left: 830px;
+        top: 2.2px;
+        &:hover .menu-profile {
+            display: block;
+        }
+        .menu-profile {
+            display: none;
+            position: absolute;
+            background-color: white;
+            top: 50px;
+            z-index: 3;
+            width: 100px;
+            height: 60px;
+            border-radius: 5px;
+            box-shadow: 4px -2px 2px rgba(0, 0, 0, 0.5);
+
+            & > p {
+                font-size: 12px;
+                padding-top: 4px;
+                margin: 0;
+            }
+            & > div{
+                width: 100%;
+
+                & >span {
+                    margin-left: 5px;
+                    font-size: 15px;
+                }
+            }
+
+        }
+    }
+    &__right__loggedin1 {
+        left: 835px;
+        top: 2.2px;
     }
     &__right__register {
         left: calc(50% - 52px / 2 + 399px);
@@ -48,9 +93,11 @@
         }
         &-pop-up {
             position: relative;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
             display: none;
             width: 210px;
             height: 313px;
+            top: 6px;
             left: -60px;
             background: #ffffff;
             z-index: 2;
@@ -102,6 +149,7 @@
         .choose-language-or-currency {
             display: none;
             position: absolute;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
             z-index: 2;
             width: 567px;
             height: 429px;
@@ -110,12 +158,12 @@
             border-radius: 10px;
             background-color: #fff;
             &::before {
-                content: '';
+                content: "";
                 width: 100px;
                 height: 100px;
                 color: red;
                 position: absolute;
-                z-index:99;
+                z-index: 99;
                 top: -21px;
                 right: 10px;
             }

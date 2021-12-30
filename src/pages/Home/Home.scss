@@ -25,6 +25,7 @@
         color: gray;
         font-weight: 400;
         font-size: 12px;
+        padding: 4px;
     }
 }
 .start-trading {
@@ -59,7 +60,7 @@
 
         & > p {
             position: absolute;
-            width: 84px;
+            width: 90px;
             height: 16px;
 
             left: 37px;
@@ -99,8 +100,4 @@
             color: #000000;
         }
     }
-}
-.ahihi {
-   color: gray;
-   font-size: 12px;
 }
